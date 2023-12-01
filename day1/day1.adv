@@ -1,0 +1,162 @@
+import ./generated/class_number
+
+class AdventDay1 extends Program:
+    field input
+    field output
+
+    method main():
+        this.input = Input
+        this.output = Output
+        this.input.program = this
+        this.output.program = this
+
+        result = 0
+        result2 = 0
+        
+        in = this.input.read()
+        while in is String:
+            first = Null
+            last = Null
+
+            i = 0
+            c = in.at(i)
+            while c is String:
+                d = this.digitify(in, i)
+
+                if d is Number:
+                    if first is Null:
+                        first = d
+                    end
+                    last = d
+                end
+
+                i = i.++()
+                c = in.at(i)
+            end
+            
+            num = (this.mult(first, 10)) + last
+
+            while !(num.isZero()):
+                num = num.--()
+                result = result.++()
+                if result is 10000: # Prevent overflows
+                    result2 = result2.++()
+                    result = 0
+                end
+            end
+
+
+            in = this.input.read()
+        end
+
+        this.output.write((result2.toString()) + (result.toString()))
+    end
+
+    method mult(a, b):
+        result = 0
+
+        i = 0
+        while !(i.equals(b)):
+            i = i.++()
+            result = a + result # a is first because we aren't sure of its mutability
+        end
+
+        return result
+    end
+
+    method div(a, b):
+        result = 0
+        
+        while !(a is 0):
+            a = a - b
+            result = result.++()
+        end
+
+        return result
+    end
+
+    method digitify(str, i):
+        s = str.at(i)
+
+        if s.equals("1"):
+            return 1
+        end
+        if s.equals("2"):
+            return 2
+        end
+        if s.equals("3"):
+            return 3
+        end
+        if s.equals("4"):
+            return 4
+        end
+        if s.equals("5"):
+            return 5
+        end
+        if s.equals("6"):
+            return 6
+        end
+        if s.equals("7"):
+            return 7
+        end
+        if s.equals("8"):
+            return 8
+        end
+        if s.equals("9"):
+            return 9 
+        end
+        
+        next = str.at(i + 2)
+        if next is Null:
+            return Null
+        end
+
+        3letter = (s + (str.at(i + 1))) + next
+
+        if 3letter.equals("one"):
+            return 1
+        end
+        if 3letter.equals("two"):
+            return 2
+        end
+        if 3letter.equals("six"):
+            return 6
+        end
+
+        next = str.at(i + 3)
+        if next is Null:
+            return Null
+        end
+
+        4letter = 3letter + next
+
+        if 4letter.equals("four"):
+            return 4
+        end
+        if 4letter.equals("five"):
+            return 5
+        end
+        if 4letter.equals("nine"):
+            return 9
+        end
+
+        next = str.at(i + 4)
+        if next is Null:
+            return Null
+        end
+
+        5letter = 4letter + next
+
+        if 5letter.equals("three"):
+            return 3
+        end
+        if 5letter.equals("seven"):
+            return 7
+        end
+        if 5letter.equals("eight"):
+            return 8
+        end
+
+        return Null
+    end
+end
