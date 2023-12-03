@@ -1,0 +1,1183 @@
+import class_number
+
+abstract class Array extends Object:
+    method get(index)
+    
+    method set(index, value)
+    
+    method size()
+end
+
+class Array0 extends Array:
+    method get(index):
+        
+    end
+    
+    method set(index, value):
+        
+    end
+    
+    method size():
+        return 0
+    end
+end
+
+class Array1 extends Array:
+    field 0    
+    
+    method get(index):
+        if index is 0:
+            return this.0
+        end
+    end
+    
+    method set(index, value):
+        if index is 0:
+            this.0 = value
+        end
+    end
+    
+    method size():
+        return 1
+    end
+end
+
+class Array2 extends Array:
+    field 0
+    field 1    
+    
+    method get(index):
+        if index is 0:
+            return this.0
+        end
+        if index is 1:
+            return this.1
+        end
+    end
+    
+    method set(index, value):
+        if index is 0:
+            this.0 = value
+        end
+        if index is 1:
+            this.1 = value
+        end
+    end
+    
+    method size():
+        return 2
+    end
+end
+
+class Array3 extends Array:
+    field 0
+    field 1
+    field 2    
+    
+    method get(index):
+        if index is 0:
+            return this.0
+        end
+        if index is 1:
+            return this.1
+        end
+        if index is 2:
+            return this.2
+        end
+    end
+    
+    method set(index, value):
+        if index is 0:
+            this.0 = value
+        end
+        if index is 1:
+            this.1 = value
+        end
+        if index is 2:
+            this.2 = value
+        end
+    end
+    
+    method size():
+        return 3
+    end
+end
+
+class Array4 extends Array:
+    field 0
+    field 1
+    field 2
+    field 3    
+    
+    method get(index):
+        if index is 0:
+            return this.0
+        end
+        if index is 1:
+            return this.1
+        end
+        if index is 2:
+            return this.2
+        end
+        if index is 3:
+            return this.3
+        end
+    end
+    
+    method set(index, value):
+        if index is 0:
+            this.0 = value
+        end
+        if index is 1:
+            this.1 = value
+        end
+        if index is 2:
+            this.2 = value
+        end
+        if index is 3:
+            this.3 = value
+        end
+    end
+    
+    method size():
+        return 4
+    end
+end
+
+class Array5 extends Array:
+    field 0
+    field 1
+    field 2
+    field 3
+    field 4    
+    
+    method get(index):
+        if index is 0:
+            return this.0
+        end
+        if index is 1:
+            return this.1
+        end
+        if index is 2:
+            return this.2
+        end
+        if index is 3:
+            return this.3
+        end
+        if index is 4:
+            return this.4
+        end
+    end
+    
+    method set(index, value):
+        if index is 0:
+            this.0 = value
+        end
+        if index is 1:
+            this.1 = value
+        end
+        if index is 2:
+            this.2 = value
+        end
+        if index is 3:
+            this.3 = value
+        end
+        if index is 4:
+            this.4 = value
+        end
+    end
+    
+    method size():
+        return 5
+    end
+end
+
+class Array6 extends Array:
+    field 0
+    field 1
+    field 2
+    field 3
+    field 4
+    field 5    
+    
+    method get(index):
+        if index is 0:
+            return this.0
+        end
+        if index is 1:
+            return this.1
+        end
+        if index is 2:
+            return this.2
+        end
+        if index is 3:
+            return this.3
+        end
+        if index is 4:
+            return this.4
+        end
+        if index is 5:
+            return this.5
+        end
+    end
+    
+    method set(index, value):
+        if index is 0:
+            this.0 = value
+        end
+        if index is 1:
+            this.1 = value
+        end
+        if index is 2:
+            this.2 = value
+        end
+        if index is 3:
+            this.3 = value
+        end
+        if index is 4:
+            this.4 = value
+        end
+        if index is 5:
+            this.5 = value
+        end
+    end
+    
+    method size():
+        return 6
+    end
+end
+
+class Array7 extends Array:
+    field 0
+    field 1
+    field 2
+    field 3
+    field 4
+    field 5
+    field 6    
+    
+    method get(index):
+        if index is 0:
+            return this.0
+        end
+        if index is 1:
+            return this.1
+        end
+        if index is 2:
+            return this.2
+        end
+        if index is 3:
+            return this.3
+        end
+        if index is 4:
+            return this.4
+        end
+        if index is 5:
+            return this.5
+        end
+        if index is 6:
+            return this.6
+        end
+    end
+    
+    method set(index, value):
+        if index is 0:
+            this.0 = value
+        end
+        if index is 1:
+            this.1 = value
+        end
+        if index is 2:
+            this.2 = value
+        end
+        if index is 3:
+            this.3 = value
+        end
+        if index is 4:
+            this.4 = value
+        end
+        if index is 5:
+            this.5 = value
+        end
+        if index is 6:
+            this.6 = value
+        end
+    end
+    
+    method size():
+        return 7
+    end
+end
+
+class Array8 extends Array:
+    field 0
+    field 1
+    field 2
+    field 3
+    field 4
+    field 5
+    field 6
+    field 7    
+    
+    method get(index):
+        if index is 0:
+            return this.0
+        end
+        if index is 1:
+            return this.1
+        end
+        if index is 2:
+            return this.2
+        end
+        if index is 3:
+            return this.3
+        end
+        if index is 4:
+            return this.4
+        end
+        if index is 5:
+            return this.5
+        end
+        if index is 6:
+            return this.6
+        end
+        if index is 7:
+            return this.7
+        end
+    end
+    
+    method set(index, value):
+        if index is 0:
+            this.0 = value
+        end
+        if index is 1:
+            this.1 = value
+        end
+        if index is 2:
+            this.2 = value
+        end
+        if index is 3:
+            this.3 = value
+        end
+        if index is 4:
+            this.4 = value
+        end
+        if index is 5:
+            this.5 = value
+        end
+        if index is 6:
+            this.6 = value
+        end
+        if index is 7:
+            this.7 = value
+        end
+    end
+    
+    method size():
+        return 8
+    end
+end
+
+class Array9 extends Array:
+    field 0
+    field 1
+    field 2
+    field 3
+    field 4
+    field 5
+    field 6
+    field 7
+    field 8    
+    
+    method get(index):
+        if index is 0:
+            return this.0
+        end
+        if index is 1:
+            return this.1
+        end
+        if index is 2:
+            return this.2
+        end
+        if index is 3:
+            return this.3
+        end
+        if index is 4:
+            return this.4
+        end
+        if index is 5:
+            return this.5
+        end
+        if index is 6:
+            return this.6
+        end
+        if index is 7:
+            return this.7
+        end
+        if index is 8:
+            return this.8
+        end
+    end
+    
+    method set(index, value):
+        if index is 0:
+            this.0 = value
+        end
+        if index is 1:
+            this.1 = value
+        end
+        if index is 2:
+            this.2 = value
+        end
+        if index is 3:
+            this.3 = value
+        end
+        if index is 4:
+            this.4 = value
+        end
+        if index is 5:
+            this.5 = value
+        end
+        if index is 6:
+            this.6 = value
+        end
+        if index is 7:
+            this.7 = value
+        end
+        if index is 8:
+            this.8 = value
+        end
+    end
+    
+    method size():
+        return 9
+    end
+end
+
+class Array10 extends Array:
+    field 0
+    field 1
+    field 2
+    field 3
+    field 4
+    field 5
+    field 6
+    field 7
+    field 8
+    field 9    
+    
+    method get(index):
+        if index is 0:
+            return this.0
+        end
+        if index is 1:
+            return this.1
+        end
+        if index is 2:
+            return this.2
+        end
+        if index is 3:
+            return this.3
+        end
+        if index is 4:
+            return this.4
+        end
+        if index is 5:
+            return this.5
+        end
+        if index is 6:
+            return this.6
+        end
+        if index is 7:
+            return this.7
+        end
+        if index is 8:
+            return this.8
+        end
+        if index is 9:
+            return this.9
+        end
+    end
+    
+    method set(index, value):
+        if index is 0:
+            this.0 = value
+        end
+        if index is 1:
+            this.1 = value
+        end
+        if index is 2:
+            this.2 = value
+        end
+        if index is 3:
+            this.3 = value
+        end
+        if index is 4:
+            this.4 = value
+        end
+        if index is 5:
+            this.5 = value
+        end
+        if index is 6:
+            this.6 = value
+        end
+        if index is 7:
+            this.7 = value
+        end
+        if index is 8:
+            this.8 = value
+        end
+        if index is 9:
+            this.9 = value
+        end
+    end
+    
+    method size():
+        return 10
+    end
+end
+
+class Array11 extends Array:
+    field 0
+    field 1
+    field 2
+    field 3
+    field 4
+    field 5
+    field 6
+    field 7
+    field 8
+    field 9
+    field 10    
+    
+    method get(index):
+        if index is 0:
+            return this.0
+        end
+        if index is 1:
+            return this.1
+        end
+        if index is 2:
+            return this.2
+        end
+        if index is 3:
+            return this.3
+        end
+        if index is 4:
+            return this.4
+        end
+        if index is 5:
+            return this.5
+        end
+        if index is 6:
+            return this.6
+        end
+        if index is 7:
+            return this.7
+        end
+        if index is 8:
+            return this.8
+        end
+        if index is 9:
+            return this.9
+        end
+        if index is 10:
+            return this.10
+        end
+    end
+    
+    method set(index, value):
+        if index is 0:
+            this.0 = value
+        end
+        if index is 1:
+            this.1 = value
+        end
+        if index is 2:
+            this.2 = value
+        end
+        if index is 3:
+            this.3 = value
+        end
+        if index is 4:
+            this.4 = value
+        end
+        if index is 5:
+            this.5 = value
+        end
+        if index is 6:
+            this.6 = value
+        end
+        if index is 7:
+            this.7 = value
+        end
+        if index is 8:
+            this.8 = value
+        end
+        if index is 9:
+            this.9 = value
+        end
+        if index is 10:
+            this.10 = value
+        end
+    end
+    
+    method size():
+        return 11
+    end
+end
+
+class Array12 extends Array:
+    field 0
+    field 1
+    field 2
+    field 3
+    field 4
+    field 5
+    field 6
+    field 7
+    field 8
+    field 9
+    field 10
+    field 11    
+    
+    method get(index):
+        if index is 0:
+            return this.0
+        end
+        if index is 1:
+            return this.1
+        end
+        if index is 2:
+            return this.2
+        end
+        if index is 3:
+            return this.3
+        end
+        if index is 4:
+            return this.4
+        end
+        if index is 5:
+            return this.5
+        end
+        if index is 6:
+            return this.6
+        end
+        if index is 7:
+            return this.7
+        end
+        if index is 8:
+            return this.8
+        end
+        if index is 9:
+            return this.9
+        end
+        if index is 10:
+            return this.10
+        end
+        if index is 11:
+            return this.11
+        end
+    end
+    
+    method set(index, value):
+        if index is 0:
+            this.0 = value
+        end
+        if index is 1:
+            this.1 = value
+        end
+        if index is 2:
+            this.2 = value
+        end
+        if index is 3:
+            this.3 = value
+        end
+        if index is 4:
+            this.4 = value
+        end
+        if index is 5:
+            this.5 = value
+        end
+        if index is 6:
+            this.6 = value
+        end
+        if index is 7:
+            this.7 = value
+        end
+        if index is 8:
+            this.8 = value
+        end
+        if index is 9:
+            this.9 = value
+        end
+        if index is 10:
+            this.10 = value
+        end
+        if index is 11:
+            this.11 = value
+        end
+    end
+    
+    method size():
+        return 12
+    end
+end
+
+class Array13 extends Array:
+    field 0
+    field 1
+    field 2
+    field 3
+    field 4
+    field 5
+    field 6
+    field 7
+    field 8
+    field 9
+    field 10
+    field 11
+    field 12    
+    
+    method get(index):
+        if index is 0:
+            return this.0
+        end
+        if index is 1:
+            return this.1
+        end
+        if index is 2:
+            return this.2
+        end
+        if index is 3:
+            return this.3
+        end
+        if index is 4:
+            return this.4
+        end
+        if index is 5:
+            return this.5
+        end
+        if index is 6:
+            return this.6
+        end
+        if index is 7:
+            return this.7
+        end
+        if index is 8:
+            return this.8
+        end
+        if index is 9:
+            return this.9
+        end
+        if index is 10:
+            return this.10
+        end
+        if index is 11:
+            return this.11
+        end
+        if index is 12:
+            return this.12
+        end
+    end
+    
+    method set(index, value):
+        if index is 0:
+            this.0 = value
+        end
+        if index is 1:
+            this.1 = value
+        end
+        if index is 2:
+            this.2 = value
+        end
+        if index is 3:
+            this.3 = value
+        end
+        if index is 4:
+            this.4 = value
+        end
+        if index is 5:
+            this.5 = value
+        end
+        if index is 6:
+            this.6 = value
+        end
+        if index is 7:
+            this.7 = value
+        end
+        if index is 8:
+            this.8 = value
+        end
+        if index is 9:
+            this.9 = value
+        end
+        if index is 10:
+            this.10 = value
+        end
+        if index is 11:
+            this.11 = value
+        end
+        if index is 12:
+            this.12 = value
+        end
+    end
+    
+    method size():
+        return 13
+    end
+end
+
+class Array14 extends Array:
+    field 0
+    field 1
+    field 2
+    field 3
+    field 4
+    field 5
+    field 6
+    field 7
+    field 8
+    field 9
+    field 10
+    field 11
+    field 12
+    field 13    
+    
+    method get(index):
+        if index is 0:
+            return this.0
+        end
+        if index is 1:
+            return this.1
+        end
+        if index is 2:
+            return this.2
+        end
+        if index is 3:
+            return this.3
+        end
+        if index is 4:
+            return this.4
+        end
+        if index is 5:
+            return this.5
+        end
+        if index is 6:
+            return this.6
+        end
+        if index is 7:
+            return this.7
+        end
+        if index is 8:
+            return this.8
+        end
+        if index is 9:
+            return this.9
+        end
+        if index is 10:
+            return this.10
+        end
+        if index is 11:
+            return this.11
+        end
+        if index is 12:
+            return this.12
+        end
+        if index is 13:
+            return this.13
+        end
+    end
+    
+    method set(index, value):
+        if index is 0:
+            this.0 = value
+        end
+        if index is 1:
+            this.1 = value
+        end
+        if index is 2:
+            this.2 = value
+        end
+        if index is 3:
+            this.3 = value
+        end
+        if index is 4:
+            this.4 = value
+        end
+        if index is 5:
+            this.5 = value
+        end
+        if index is 6:
+            this.6 = value
+        end
+        if index is 7:
+            this.7 = value
+        end
+        if index is 8:
+            this.8 = value
+        end
+        if index is 9:
+            this.9 = value
+        end
+        if index is 10:
+            this.10 = value
+        end
+        if index is 11:
+            this.11 = value
+        end
+        if index is 12:
+            this.12 = value
+        end
+        if index is 13:
+            this.13 = value
+        end
+    end
+    
+    method size():
+        return 14
+    end
+end
+
+class Array15 extends Array:
+    field 0
+    field 1
+    field 2
+    field 3
+    field 4
+    field 5
+    field 6
+    field 7
+    field 8
+    field 9
+    field 10
+    field 11
+    field 12
+    field 13
+    field 14    
+    
+    method get(index):
+        if index is 0:
+            return this.0
+        end
+        if index is 1:
+            return this.1
+        end
+        if index is 2:
+            return this.2
+        end
+        if index is 3:
+            return this.3
+        end
+        if index is 4:
+            return this.4
+        end
+        if index is 5:
+            return this.5
+        end
+        if index is 6:
+            return this.6
+        end
+        if index is 7:
+            return this.7
+        end
+        if index is 8:
+            return this.8
+        end
+        if index is 9:
+            return this.9
+        end
+        if index is 10:
+            return this.10
+        end
+        if index is 11:
+            return this.11
+        end
+        if index is 12:
+            return this.12
+        end
+        if index is 13:
+            return this.13
+        end
+        if index is 14:
+            return this.14
+        end
+    end
+    
+    method set(index, value):
+        if index is 0:
+            this.0 = value
+        end
+        if index is 1:
+            this.1 = value
+        end
+        if index is 2:
+            this.2 = value
+        end
+        if index is 3:
+            this.3 = value
+        end
+        if index is 4:
+            this.4 = value
+        end
+        if index is 5:
+            this.5 = value
+        end
+        if index is 6:
+            this.6 = value
+        end
+        if index is 7:
+            this.7 = value
+        end
+        if index is 8:
+            this.8 = value
+        end
+        if index is 9:
+            this.9 = value
+        end
+        if index is 10:
+            this.10 = value
+        end
+        if index is 11:
+            this.11 = value
+        end
+        if index is 12:
+            this.12 = value
+        end
+        if index is 13:
+            this.13 = value
+        end
+        if index is 14:
+            this.14 = value
+        end
+    end
+    
+    method size():
+        return 15
+    end
+end
+
+class Array16 extends Array:
+    field 0
+    field 1
+    field 2
+    field 3
+    field 4
+    field 5
+    field 6
+    field 7
+    field 8
+    field 9
+    field 10
+    field 11
+    field 12
+    field 13
+    field 14
+    field 15    
+    
+    method get(index):
+        if index is 0:
+            return this.0
+        end
+        if index is 1:
+            return this.1
+        end
+        if index is 2:
+            return this.2
+        end
+        if index is 3:
+            return this.3
+        end
+        if index is 4:
+            return this.4
+        end
+        if index is 5:
+            return this.5
+        end
+        if index is 6:
+            return this.6
+        end
+        if index is 7:
+            return this.7
+        end
+        if index is 8:
+            return this.8
+        end
+        if index is 9:
+            return this.9
+        end
+        if index is 10:
+            return this.10
+        end
+        if index is 11:
+            return this.11
+        end
+        if index is 12:
+            return this.12
+        end
+        if index is 13:
+            return this.13
+        end
+        if index is 14:
+            return this.14
+        end
+        if index is 15:
+            return this.15
+        end
+    end
+    
+    method set(index, value):
+        if index is 0:
+            this.0 = value
+        end
+        if index is 1:
+            this.1 = value
+        end
+        if index is 2:
+            this.2 = value
+        end
+        if index is 3:
+            this.3 = value
+        end
+        if index is 4:
+            this.4 = value
+        end
+        if index is 5:
+            this.5 = value
+        end
+        if index is 6:
+            this.6 = value
+        end
+        if index is 7:
+            this.7 = value
+        end
+        if index is 8:
+            this.8 = value
+        end
+        if index is 9:
+            this.9 = value
+        end
+        if index is 10:
+            this.10 = value
+        end
+        if index is 11:
+            this.11 = value
+        end
+        if index is 12:
+            this.12 = value
+        end
+        if index is 13:
+            this.13 = value
+        end
+        if index is 14:
+            this.14 = value
+        end
+        if index is 15:
+            this.15 = value
+        end
+    end
+    
+    method size():
+        return 16
+    end
+end

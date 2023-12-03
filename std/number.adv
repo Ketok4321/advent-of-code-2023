@@ -31,4 +31,17 @@ abstract class Number extends Object:
         end
         return (this.--()).equals(n.--())
     end
+    
+    method greaterThan(n):
+        if n.isZero():
+            if this.isZero():
+                return False
+            end
+            return True
+        end
+        if this.isZero():
+            return False
+        end
+        return (this.--()).greaterThan(n.--())
+    end
 end

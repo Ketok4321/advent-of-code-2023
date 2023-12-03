@@ -1,0 +1,204 @@
+import ./std/string_util
+import ./std/serializer
+import ./generated/class_number
+import ./generated/array
+import ../util/composed_number
+
+class AdventDay2 extends Program:
+    field input
+    field output
+
+    method main():
+        this.input = Input
+        this.output = Output
+        this.input.program = this
+        this.output.program = this
+
+        result = 0
+        result2 = ComposedNumber.new(0, 0)
+        
+        in = this.input.read()
+        while in is String:
+            game = Game.parse(in)
+
+            if game.isCorrect():
+                result = result + (game.id)
+            end
+
+            result2 = result2 + ((game.minimum()).power())
+
+            in = this.input.read()
+        end
+
+        this.output.write("Part 1: " + (result.toString()))
+        this.output.write("Part 2: " + (result2.toString()))
+    end
+end
+
+class Game extends Object:
+    field id
+    field cubeSets
+
+    method parse(str):
+        this.cubeSets = Array16
+
+        space = StringUtil.indexOf(str, " ")
+        colon = StringUtil.indexOf(str, ":")
+
+        this.id = Mirror.instantiate(StringUtil.substring(str, space + 1, colon))
+
+        str = StringUtil.substring(str, colon + 2, StringUtil.length(str))
+
+        _end = 0
+
+        break = False
+        i = 0
+        while !break:
+            _end = StringUtil.indexOf(str, ";")
+            if _end is Null:
+                _end = StringUtil.length(str)
+            end
+
+            this.cubeSets.set(i, CubeSet.parse(StringUtil.substring(str, 0, _end)))
+
+            if _end.equals(StringUtil.length(str)):
+                break = True
+            end
+            
+            if !break:
+                str = StringUtil.substring(str, _end + 2, StringUtil.length(str))
+            end
+            i = i.++()
+        end
+
+        return this
+    end
+
+    method isCorrect():
+        i = 0
+        c = this.cubeSets.get(i)
+        while c is CubeSet:
+            if !(c.isCorrect()):
+                return False
+            end
+
+            i = i.++()
+            c = this.cubeSets.get(i)
+        end
+
+        return True
+    end
+
+    method minimum():
+        result = CubeSet
+        result.red = 0
+        result.green = 0
+        result.blue = 0
+
+        i = 0
+        c = this.cubeSets.get(i)
+        while c is CubeSet:
+            if c.red.greaterThan(result.red):
+                result.red = c.red
+            end
+            if c.green.greaterThan(result.green):
+                result.green = c.green
+            end
+            if c.blue.greaterThan(result.blue):
+                result.blue = c.blue
+            end
+
+            i = i.++()
+            c = this.cubeSets.get(i)
+        end
+
+        return result
+    end
+end
+
+class CubeSet extends Object:
+    field red
+    field green
+    field blue
+
+    method parse(str):
+        this.red = 0
+        this.green = 0
+        this.blue = 0
+
+        _end = 0
+
+        break = False
+        while !break:
+            space = StringUtil.indexOf(str, " ")
+            _end = StringUtil.indexOf(str, ",")
+            if _end is Null:
+                _end = StringUtil.length(str)
+            end
+
+            num = Mirror.instantiate(StringUtil.substring(str, 0, space))
+            color = StringUtil.substring(str, space + 1, _end)
+
+            if color.equals("red"):
+                this.red = num
+            end
+            if color.equals("green"):
+                this.green = num
+            end
+            if color.equals("blue"):
+                this.blue = num
+            end
+
+            if _end.equals(StringUtil.length(str)):
+                break = True
+            end
+            
+            if !break:
+                str = StringUtil.substring(str, _end + 2, StringUtil.length(str))
+            end
+        end
+
+        return this
+    end
+
+    method isCorrect():
+        if this.red.greaterThan(12):
+            return False
+        end
+        if this.green.greaterThan(13):
+            return False
+        end
+        if this.blue.greaterThan(14):
+            return False
+        end
+
+        return True
+    end
+
+    method power():
+        return this.mult(this.red, this.mult(this.green, this.blue))
+    end
+
+    method mult(a, b):
+        result = 0
+
+        i = 0
+        while !(i.equals(b)):
+            i = i.++()
+            result = a + result # a is first because we aren't sure of its mutability
+        end
+
+        return result
+    end
+
+    method div(a, b):
+        result = 0
+        
+        while !(a is 0):
+            a = a - b
+            result = result.++()
+        end
+
+        return result
+    end
+end

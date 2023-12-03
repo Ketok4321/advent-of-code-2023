@@ -1,0 +1,52 @@
+import ../std/number
+import ../std/string_util
+
+#TODO: Configurable min max values, support for non-classnumbers
+class ComposedNumber extends Number:
+    field a
+    field b
+
+    method new(a, b):
+        this.a = a
+        this.b = b
+
+        return this
+    end
+
+    method ++():
+        if (this.b) is 9999:
+            return ComposedNumber.new(this.a.++(), 0)
+        end
+
+        return ComposedNumber.new(this.a, this.b.++())
+    end
+
+    method --():
+        if (this.b) is 0:
+            return ComposedNumber.new(this.a.--(), 9999)
+        end
+
+        return ComposedNumber.new(this.a, this.b.--())
+    end
+
+    method isZero():
+        return (this.a.isZero()).and(this.b.isZero())
+    end
+
+    method toString():
+        if this.a.isZero():
+            return this.b.toString()
+        end
+
+        bstr = this.b.toString()
+        missingZeros = 4 - (StringUtil.length(bstr))
+
+        while !(missingZeros.isZero()):
+            bstr = "0" + bstr
+
+            missingZeros = missingZeros.--()
+        end
+
+        return (this.a.toString()) + bstr
+    end
+end
