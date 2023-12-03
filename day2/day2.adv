@@ -2,7 +2,7 @@ import ./std/string_util
 import ./std/serializer
 import ./generated/class_number
 import ./generated/array
-import ../util/composed_number
+import ./util/composed_number
 
 class AdventDay2 extends Program:
     field input
@@ -176,29 +176,6 @@ class CubeSet extends Object:
     end
 
     method power():
-        return this.mult(this.red, this.mult(this.green, this.blue))
-    end
-
-    method mult(a, b):
-        result = 0
-
-        i = 0
-        while !(i.equals(b)):
-            i = i.++()
-            result = a + result # a is first because we aren't sure of its mutability
-        end
-
-        return result
-    end
-
-    method div(a, b):
-        result = 0
-        
-        while !(a is 0):
-            a = a - b
-            result = result.++()
-        end
-
-        return result
+        return ((this.red) * (this.green)) * (this.blue)
     end
 end

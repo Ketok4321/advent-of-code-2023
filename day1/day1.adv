@@ -1,4 +1,5 @@
 import ./generated/class_number
+import ./util/composed_number
 
 class AdventDay1 extends Program:
     field input
@@ -10,8 +11,7 @@ class AdventDay1 extends Program:
         this.input.program = this
         this.output.program = this
 
-        result = 0
-        result2 = 0
+        result = ComposedNumber.new(0, 0)
         
         in = this.input.read()
         while in is String:
@@ -34,45 +34,13 @@ class AdventDay1 extends Program:
                 c = in.at(i)
             end
             
-            num = (this.mult(first, 10)) + last
-
-            while !(num.isZero()):
-                num = num.--()
-                result = result.++()
-                if result is 10000: # Prevent overflows
-                    result2 = result2.++()
-                    result = 0
-                end
-            end
-
+            num = (first * 10) + last
+            result = result + num
 
             in = this.input.read()
         end
 
-        this.output.write((result2.toString()) + (result.toString()))
-    end
-
-    method mult(a, b):
-        result = 0
-
-        i = 0
-        while !(i.equals(b)):
-            i = i.++()
-            result = a + result # a is first because we aren't sure of its mutability
-        end
-
-        return result
-    end
-
-    method div(a, b):
-        result = 0
-        
-        while !(a is 0):
-            a = a - b
-            result = result.++()
-        end
-
-        return result
+        this.output.write(result.toString())
     end
 
     method digitify(str, i):
