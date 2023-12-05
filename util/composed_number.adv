@@ -1,7 +1,8 @@
 import ../std/number
 import ../std/string_util
 
-#TODO: Configurable min max values, support for non-classnumbers
+#TODO: Configurable max values, support for non-classnumbers
+#TODO: Rename to CompoundNumber?
 class ComposedNumber extends Number:
     field a
     field b

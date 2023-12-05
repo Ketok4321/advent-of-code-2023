@@ -1,0 +1,135 @@
+import ./std/string_util
+import ./generated/class_number
+import ./util/composed_number
+
+class AdventDay3 extends Program:
+    field input
+    field output
+
+    method main():
+        this.input = Input
+        this.output = Output
+        this.input.program = this
+        this.output.program = this
+
+        result = ComposedNumber.new(0, 0)
+        
+        in1 = Null
+        in2 = this.input.read()
+        in3 = this.input.read()
+        while in2 is String:
+            i = 0
+            c = in2.at(i)
+            num = ""
+            isPart = False
+            while c is String:
+                digit = this.isDigit(c)
+                if digit:
+                    num = num + c
+                    if this.neighboursSymbol(in1, in2, in3, i):
+                        isPart = True
+                    end
+                end
+                if !digit:
+                    if !(num.equals("")):
+                        if isPart:
+                            result = result + (Mirror.instantiate(num))
+                        end
+                        num = ""
+                        isPart = False
+                    end
+                end
+
+                i = i.++()
+                c = in2.at(i)
+            end
+            if !(num.equals("")):
+                if isPart:
+                    result = result + (Mirror.instantiate(num))
+                end
+                num = ""
+                isPart = False
+            end
+
+            in1 = in2
+            in2 = in3
+            in3 = this.input.read()
+        end
+
+        this.output.write("Part 1: " + (result.toString()))
+    end
+
+    method neighboursSymbol(in1, in2, in3, i):
+        j = i
+        if !(i.isZero()):
+            j = i - 1
+        end
+        while !(j.equals(i + 2)):
+            if in1 is String:
+                if this.isSymbol(in1.at(j)):
+                    return True
+                end
+            end
+            if this.isSymbol(in2.at(j)):
+                return True
+            end
+            if in3 is String:
+                if this.isSymbol(in3.at(j)):
+                    return True
+                end
+            end
+            j = j.++()
+        end
+
+        return False
+    end
+
+    method isSymbol(c):
+        if c is Null:
+            return False
+        end
+        if this.isDigit(c):
+            return False
+        end
+        if c.equals("."):
+            return False
+        end
+
+        return True
+    end
+
+    method isDigit(c):
+        if c.equals("0"):
+            return True
+        end
+        if c.equals("1"):
+            return True
+        end
+        if c.equals("2"):
+            return True
+        end
+        if c.equals("3"):
+            return True
+        end
+        if c.equals("4"):
+            return True
+        end
+        if c.equals("5"):
+            return True
+        end
+        if c.equals("6"):
+            return True
+        end
+        if c.equals("7"):
+            return True
+        end
+        if c.equals("8"):
+            return True
+        end
+        if c.equals("9"):
+            return True
+        end
+
+        return False
+    end
+end
