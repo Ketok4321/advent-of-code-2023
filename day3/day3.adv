@@ -1,6 +1,9 @@
 import ./std/string_util
+import ./std/list
 import ./generated/class_number
+import ./generated/array
 import ./util/composed_number
+import ./util/ref
 
 class AdventDay3 extends Program:
     field input
@@ -13,29 +16,33 @@ class AdventDay3 extends Program:
         this.output.program = this
 
         result = ComposedNumber.new(0, 0)
+        result2 = ""
         
         in1 = Null
         in2 = this.input.read()
         in3 = this.input.read()
+        g1 = Array16
+        g2 = Array16
+        g3 = Array16
         while in2 is String:
             i = 0
             c = in2.at(i)
-            num = ""
+            num = Ref.to("")
             isPart = False
             while c is String:
                 digit = this.isDigit(c)
                 if digit:
-                    num = num + c
-                    if this.neighboursSymbol(in1, in2, in3, i):
+                    num.value = (num.value) + c
+                    if this.neighboursSymbol(in1, in2, in3, i, g1, g2, g3, num):
                         isPart = True
                     end
                 end
                 if !digit:
-                    if !(num.equals("")):
+                    if !(num.value.equals("")):
                         if isPart:
-                            result = result + (Mirror.instantiate(num))
+                            result = result + (Mirror.instantiate(num.value))
                         end
-                        num = ""
+                        num = Ref.to("")
                         isPart = False
                     end
                 end
@@ -43,37 +50,72 @@ class AdventDay3 extends Program:
                 i = i.++()
                 c = in2.at(i)
             end
-            if !(num.equals("")):
+            if !(num.value.equals("")):
                 if isPart:
-                    result = result + (Mirror.instantiate(num))
+                    result = result + (Mirror.instantiate(num.value))
                 end
-                num = ""
-                isPart = False
             end
 
             in1 = in2
             in2 = in3
             in3 = this.input.read()
+
+            i = 0
+            g = g1.get(i)
+            while g is Gear:
+                if g.valid():
+                    result2 = (result2 + (g.ratio())) + " + "
+                end
+                i = i.++()
+                g = g1.get(i)
+            end
+
+            g1 = g2
+            g2 = g3
+            g3 = Array16
+        end
+        i = 0
+        g = g1.get(i)
+        while g is Gear:
+            if g.valid():
+                result2 = (result2 + (g.ratio())) + " + "
+            end
+            i = i.++()
+            g = g1.get(i)
+        end
+
+        i = 0
+        g = g2.get(i)
+        while g is Gear:
+            if g.valid():
+                result2 = (result2 + (g.ratio())) + " + "
+            end
+            i = i.++()
+            g = g2.get(i)
         end
 
         this.output.write("Part 1: " + (result.toString()))
+        this.output.write("Part 2: " + result2)
     end
 
-    method neighboursSymbol(in1, in2, in3, i):
+    method neighboursSymbol(in1, in2, in3, i, g1, g2, g3, num):
         j = i
         if !(i.isZero()):
             j = i - 1
         end
         while !(j.equals(i + 2)):
             if in1 is String:
+                this.gearStuff(in1, g1, j, num)
                 if this.isSymbol(in1.at(j)):
                     return True
                 end
             end
+            this.gearStuff(in2, g2, j, num)
             if this.isSymbol(in2.at(j)):
                 return True
             end
             if in3 is String:
+                this.gearStuff(in3, g3, j, num)
                 if this.isSymbol(in3.at(j)):
                     return True
                 end
@@ -82,6 +124,31 @@ class AdventDay3 extends Program:
         end
 
         return False
+    end
+
+    method gearStuff(in, g, j, num):
+        c = in.at(j)
+        if c is Null:
+            return Null
+        end
+        if c.equals("*"):
+            i = 0
+            break = False
+            while !break:
+                gear = g.get(i)
+                if gear is Null:
+                    g.set(i, Gear.new(j, num))
+                    break = True
+                end
+                if !(gear is Null):
+                    if gear.pos.equals(j):
+                        gear.add(num)
+                        break = True
+                    end
+                end
+                i = i.++()
+            end
+        end
     end
 
     method isSymbol(c):
@@ -131,5 +198,41 @@ class AdventDay3 extends Program:
         end
 
         return False
+    end
+end
+
+class Gear extends Object:
+    field pos
+
+    field parts
+
+    method new(pos, part):
+        this.pos = pos
+        this.parts = List.init(Array16)
+        this.parts.push(part)
+
+        return this
+    end
+
+    method valid():
+        return (this.parts.size) is 2
+    end
+
+    method add(val):
+        i = 0
+        while i.lesserThan(this.parts.size):
+            if (this.parts.array.get(i)) = val:
+                return Null
+            end
+
+            i = i.++()
+        end
+
+        this.parts.push(val)
+    end
+
+    method ratio():
+        return ((("(" + (this.parts.array.0.value)) + " * ") + (this.parts.array.1.value)) + ")"
+        #return (ComposedNumber.new(0, Mirror.instantiate(this.parts.array.0.value))) * (Mirror.instantiate(this.parts.array.1.value)) # Causes stack overflows lol
     end
 end
