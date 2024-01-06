@@ -1,0 +1,195 @@
+abstract class Array extends Object:
+    method get(index)
+    
+    method set(index, value)
+    
+    method size()
+end
+
+class Array25 extends Array:
+    field 0
+    field 1
+    field 2
+    field 3
+    field 4
+    field 5
+    field 6
+    field 7
+    field 8
+    field 9
+    field 10
+    field 11
+    field 12
+    field 13
+    field 14
+    field 15
+    field 16
+    field 17
+    field 18
+    field 19
+    field 20
+    field 21
+    field 22
+    field 23
+    field 24    
+    
+    method get(index):
+        if index.equalsStr("0"):
+            return this.0
+        end
+        if index.equalsStr("1"):
+            return this.1
+        end
+        if index.equalsStr("2"):
+            return this.2
+        end
+        if index.equalsStr("3"):
+            return this.3
+        end
+        if index.equalsStr("4"):
+            return this.4
+        end
+        if index.equalsStr("5"):
+            return this.5
+        end
+        if index.equalsStr("6"):
+            return this.6
+        end
+        if index.equalsStr("7"):
+            return this.7
+        end
+        if index.equalsStr("8"):
+            return this.8
+        end
+        if index.equalsStr("9"):
+            return this.9
+        end
+        if index.equalsStr("10"):
+            return this.10
+        end
+        if index.equalsStr("11"):
+            return this.11
+        end
+        if index.equalsStr("12"):
+            return this.12
+        end
+        if index.equalsStr("13"):
+            return this.13
+        end
+        if index.equalsStr("14"):
+            return this.14
+        end
+        if index.equalsStr("15"):
+            return this.15
+        end
+        if index.equalsStr("16"):
+            return this.16
+        end
+        if index.equalsStr("17"):
+            return this.17
+        end
+        if index.equalsStr("18"):
+            return this.18
+        end
+        if index.equalsStr("19"):
+            return this.19
+        end
+        if index.equalsStr("20"):
+            return this.20
+        end
+        if index.equalsStr("21"):
+            return this.21
+        end
+        if index.equalsStr("22"):
+            return this.22
+        end
+        if index.equalsStr("23"):
+            return this.23
+        end
+        if index.equalsStr("24"):
+            return this.24
+        end
+    end
+    
+    method set(index, value):
+        if index.equalsStr("0"):
+            this.0 = value
+        end
+        if index.equalsStr("1"):
+            this.1 = value
+        end
+        if index.equalsStr("2"):
+            this.2 = value
+        end
+        if index.equalsStr("3"):
+            this.3 = value
+        end
+        if index.equalsStr("4"):
+            this.4 = value
+        end
+        if index.equalsStr("5"):
+            this.5 = value
+        end
+        if index.equalsStr("6"):
+            this.6 = value
+        end
+        if index.equalsStr("7"):
+            this.7 = value
+        end
+        if index.equalsStr("8"):
+            this.8 = value
+        end
+        if index.equalsStr("9"):
+            this.9 = value
+        end
+        if index.equalsStr("10"):
+            this.10 = value
+        end
+        if index.equalsStr("11"):
+            this.11 = value
+        end
+        if index.equalsStr("12"):
+            this.12 = value
+        end
+        if index.equalsStr("13"):
+            this.13 = value
+        end
+        if index.equalsStr("14"):
+            this.14 = value
+        end
+        if index.equalsStr("15"):
+            this.15 = value
+        end
+        if index.equalsStr("16"):
+            this.16 = value
+        end
+        if index.equalsStr("17"):
+            this.17 = value
+        end
+        if index.equalsStr("18"):
+            this.18 = value
+        end
+        if index.equalsStr("19"):
+            this.19 = value
+        end
+        if index.equalsStr("20"):
+            this.20 = value
+        end
+        if index.equalsStr("21"):
+            this.21 = value
+        end
+        if index.equalsStr("22"):
+            this.22 = value
+        end
+        if index.equalsStr("23"):
+            this.23 = value
+        end
+        if index.equalsStr("24"):
+            this.24 = value
+        end
+    end
+    
+    method size():
+        return 25
+    end
+end

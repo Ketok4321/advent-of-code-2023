@@ -1,0 +1,40 @@
+import ../generated/class_number
+
+#TODO: Strings
+class Serializer extends Object:
+    method serialize(prefix, object):
+        newline = String.char(10)
+        quote = String.char(34)
+    
+        type = Mirror.typeName(object)
+        mirror = Mirror.reflecting(type)
+        
+        result = ((prefix + " = ") + type) + newline
+        
+        result = result + (this.serializeFields(prefix, object, mirror))
+
+        while !((mirror.parent()) is Null):
+            mirror.reflecting(mirror.parent())
+
+            result = result + (this.serializeFields(prefix, object, mirror))
+        end
+
+        return result
+    end
+
+    method serializeFields(prefix, object, mirror):
+        result = ""
+        
+        i = 0
+        while !((mirror.field(i)) is Null):
+            field = mirror.field(i)
+            eval "value = object." + field
+            
+            result = result + (this.serialize((prefix + ".") + field, value))
+
+            i = i.++()
+        end
+        
+        return result
+    end
+end

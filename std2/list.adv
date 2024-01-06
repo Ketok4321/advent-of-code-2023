@@ -1,0 +1,115 @@
+abstract class List extends Object:
+    method push(value)
+    method pop()
+
+    method get(index)
+    method set(index, value)
+
+    method size()
+end
+
+class ArrayList extends List:
+    field array
+    field _size
+
+    method new(array):
+        this.array = array
+        this._size = 0
+
+        return this
+    end
+
+    method push(value):
+        (this.array).set(this._size, value)
+        this._size = (this._size).++()
+    end
+
+    method pop():
+        this._size = (this._size).--()
+        return (this.array).get(this._size)
+    end
+
+    method get(index):
+        return this.array.get(index)
+    end
+
+    method set(index, value):
+        this.array.set(index, value)
+    end
+
+    method size():
+        return this._size
+    end
+end
+
+class LinkedList extends List:
+    field _first
+    field _last
+
+    method push(value):
+        cell = _LinkedList_Cell
+        cell.head = value
+        #cell.tail = Null
+        
+        if (this._last) is _LinkedList_Cell: # (non-null check)
+            this._last.tail = cell
+        end
+
+        this._last = cell
+        if (this._first) is Null:
+            this._first = cell
+        end
+    end
+
+    method pop() # TODO
+
+    method pushStart() # TODO
+
+    method popStart():
+        old = this._first
+        this._first = old.tail
+        return old.head
+    end
+
+    method _getCell(index):
+        cell = this._first
+        while !(index.isZero()):
+            cell = cell.tail
+            index = index.--()
+        end
+
+        return cell
+    end
+
+    method get(index):
+        return (this._getCell(index)).head
+    end
+
+    method set(index, value):
+        (this._getCell(index)).head = value
+    end
+
+    method size():
+        res = 0
+        cell = this._first
+        while cell is _LinkedList_Cell:
+            cell = cell.tail
+            res = res.++()
+        end
+
+        return res
+    end
+
+    method first():
+        return this._first.head
+    end
+
+    method last():
+        return this._last.head
+    end
+end
+
+class _LinkedList_Cell extends Object:
+    field head
+    field tail
+end

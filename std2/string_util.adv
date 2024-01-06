@@ -1,0 +1,39 @@
+import ../generated/class_number
+
+class StringUtil extends Object:
+    method substring(string, start, end):
+        result = ""
+
+        while !(start.equals(end)):
+            result = result + (string.at(start))
+            start = start.++()
+        end
+
+        return result
+    end
+
+    method indexOf(string, char):
+        i = 0
+        c = string.at(i)
+        while c is String:
+            if c.equals(char):
+                return i
+            end
+            i = i.++()
+            c = string.at(i)
+        end
+
+        return Null
+    end
+
+    method length(string):
+        i = 0
+        c = string.at(i)
+        while c is String:
+            i = i.++()
+            c = string.at(i)
+        end
+
+        return i
+    end
+end

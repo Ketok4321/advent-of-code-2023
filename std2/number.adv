@@ -1,0 +1,79 @@
+abstract class Number extends Object:
+    method ++()
+    method --()
+
+    method isZero()
+    method toString()
+    
+    method +(n):
+        if n.isZero():
+            return this
+        end
+        return (this.++()) + (n.--())
+    end
+    
+    method -(n):
+        if n.isZero():
+            return this
+        end
+        return (this.--()) - (n.--())
+    end
+    
+    method *(n):
+        result = this - this # A funny way to say 0
+
+        while !(n.isZero()):
+            result = result + this
+            n = n.--()
+        end
+
+        return result
+    end
+
+    method /(n):
+        result = this - this # A funny way to say 0
+        
+        a = this
+
+        while !(a.isZero()):
+            a = a - n
+            result = result.++()
+        end
+
+        return result
+    end
+    
+    method equals(n):
+        return this.equalsStr(n.toString())
+    end
+
+    method equalsStr(str):
+        return (this.toString()).equals(str)
+    end
+    
+    method greaterThan(n):
+        if n.isZero():
+            if this.isZero():
+                return False
+            end
+            return True
+        end
+        if this.isZero():
+            return False
+        end
+        return (this.--()).greaterThan(n.--())
+    end
+    
+    method lesserThan(n):
+        if n.isZero():
+            if this.isZero():
+                return False
+            end
+            return False
+        end
+        if this.isZero():
+            return True
+        end
+        return (this.--()).lesserThan(n.--())
+    end
+end

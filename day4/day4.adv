@@ -1,0 +1,167 @@
+import ./std/string_util
+import ./std/list
+import ./generated/class_number
+import ./generated/array
+import ./util/composed_number
+
+class A extends Object:
+    method cos():
+        return B
+    end
+end
+
+class B extends Object:
+    method cos():
+        return A
+    end
+end
+
+class AdventDay4 extends Program:
+    field input
+    field output
+
+    method main():
+        this.input = Input
+        this.output = Output
+        this.input.program = this
+        this.output.program = this
+
+        result = ComposedNumber.new(0, 0)
+        result2 = ""
+
+        cards = LinkedList
+        cardCounts = LinkedList
+        
+        in = this.input.read()
+        while in is String:
+            card = Card.parse(in)
+            cards.push(card)
+            cardCounts.push(1)
+
+            result = result + (card.points())
+
+            in = this.input.read()
+        end
+
+        i = 0
+        cardsSize = cards.size()
+
+        while !(i.equals(cardsSize)):
+            this.output.write(i.toString())
+            card = cards.popStart()
+            count = cardCounts.popStart()
+            matches = card.matches()
+            
+            result2 = (result2 + (count.toString())) + " + "
+
+            this.output.write("math done")
+            j = 0
+            while !(j.equals(matches)):
+            this.output.write(j.toString())
+                cardCounts.set(j, (cardCounts.get(j)) + count)
+
+                j = j.++()
+            end
+            this.output.write("loop done")
+
+            i = i.++()
+        end
+
+        this.output.write("Part 1: " + (result.toString()))
+        this.output.write("Part 2: " + result2)
+    end
+end
+
+class Card extends Object:
+    field id
+    field winningNumbers
+    field numbers
+
+    method parse(str):
+        space = StringUtil.indexOf(str, " ")
+        colon = StringUtil.indexOf(str, ":")
+
+        #this.id = Mirror.instantiate(StringUtil.substring(str, space + 1, colon))
+
+        str = StringUtil.substring(str, colon + 2, StringUtil.length(str))
+        parts = this.split(str, "|")
+        this.winningNumbers = this.split(parts.0, " ")
+        this.numbers = this.split(parts.1, " ")
+
+        return this
+    end
+
+    method matches():
+        res = 0
+
+        i = 0
+        n = this.numbers.get(i)
+        while n is String:
+            j = 0
+            w = this.winningNumbers.get(j)
+            while w is String:
+                if n.equals(w):
+                    res = res.++()
+                end
+
+                j = j.++()
+                w = this.winningNumbers.get(j)
+            end 
+
+            i = i.++()
+            n = this.numbers.get(i)
+        end 
+
+        return res
+    end 
+
+    method points():
+        res = 1
+        matches = this.matches()
+        
+        if matches.isZero():
+            return 0
+        end
+        matches = matches.--()
+
+        while !(matches.isZero()):
+            res = res * 2
+            matches = matches.--()
+        end
+
+        return res
+    end
+
+    method split(str, char):
+        res = Array25
+        resi = 0
+        word = ""
+        
+        i = 0
+        c = str.at(i)
+        while c is String:
+            condition = c.equals(char)
+            if condition:
+                if !(word.equals("")):
+                    res.set(resi, word)
+                    word = ""
+                    resi = resi.++()
+                end
+            end
+            if !condition:
+                word = word + c
+            end
+
+            i = i.++()
+            c = str.at(i)
+        end
+
+        if !(word.equals("")):
+            res.set(resi, word)
+            word = ""
+            resi = resi.++()
+        end
+
+        return res
+    end
+end
